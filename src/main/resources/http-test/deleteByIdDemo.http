@@ -1,0 +1,2 @@
+DELETE http://localhost:8081/car/9
+Accept: application/json

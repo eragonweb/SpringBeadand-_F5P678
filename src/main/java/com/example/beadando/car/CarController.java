@@ -1,6 +1,8 @@
 package com.example.beadando.car;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -26,13 +28,15 @@ public class CarController {
 
     //find by id
     @GetMapping("/car/{id}")
-    public CarEntity findById(@PathVariable Long id){
-         for (CarEntity entity : list) {
-            if (entity.getId().equals(id)){
-                return entity;
-            }
+    public ResponseEntity findById(@PathVariable Long id){
+
+        CarEntity entity = findCarById(id);
+        if(entity!=null){
+            return ResponseEntity.ok(entity);
+
         }
-        return null;
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
     //find all
@@ -53,9 +57,9 @@ public class CarController {
     }
 
     //update @PostMapping
-    @PutMapping(value ="/car", consumes = MediaType.APPLICATION_JSON_VALUE)
+   @PutMapping(value ="/car", consumes = MediaType.APPLICATION_JSON_VALUE)
     public CarEntity update(@RequestBody CarEntity entity) {
-        CarEntity updateCar= findById(entity.getId());
+        CarEntity updateCar= findCarById(entity.getId());
         if(updateCar!=null){
             updateCar.setType(entity.getType());
             updateCar.setDoor_number(entity.getDoor_number());
@@ -76,6 +80,16 @@ public class CarController {
                 list.remove(entity);
                 return "Lófasz";
             }
+        }
+        return null;
+    }
+
+    private CarEntity findCarById(Long id) {
+        for (CarEntity entity : list) {
+            if (entity.getId().equals(id)) {
+                return entity;
+            }
+
         }
         return null;
     }
