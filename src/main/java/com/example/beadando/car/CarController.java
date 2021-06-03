@@ -55,7 +55,11 @@ public class CarController {
     //update @PostMapping
     @PutMapping(value ="/car", consumes = MediaType.APPLICATION_JSON_VALUE)
     public CarEntity update(@RequestBody CarEntity entity) {
-        list.add(entity);
+        CarEntity updateCar= findById(entity.getId());
+        updateCar.setType(entity.getType());
+        updateCar.setDoor_number(entity.getDoor_number());
+        updateCar.setManufacturer(entity.getManufacturer());
+        updateCar.setManufacturer_year(entity.getManufacturer_year());
         return entity;
     }
 
