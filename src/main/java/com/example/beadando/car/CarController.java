@@ -56,14 +56,27 @@ public class CarController {
     @PutMapping(value ="/car", consumes = MediaType.APPLICATION_JSON_VALUE)
     public CarEntity update(@RequestBody CarEntity entity) {
         CarEntity updateCar= findById(entity.getId());
-        updateCar.setType(entity.getType());
-        updateCar.setDoor_number(entity.getDoor_number());
-        updateCar.setManufacturer(entity.getManufacturer());
-        updateCar.setManufacturer_year(entity.getManufacturer_year());
-        return entity;
+        if(updateCar!=null){
+            updateCar.setType(entity.getType());
+            updateCar.setDoor_number(entity.getDoor_number());
+            updateCar.setManufacturer(entity.getManufacturer());
+            updateCar.setManufacturer_year(entity.getManufacturer_year());
+        }
+
+        return updateCar;
     }
 
 
 
     //delete by id @DeleteMapping
+    @DeleteMapping("/car/{id}")
+    public String deleteById(@PathVariable Long id){
+        for (CarEntity entity : list) {
+            if (entity.getId().equals(id)){
+                list.remove(entity)
+                return "Lófasz";
+            }
+        }
+        return null;
+    }
 }
