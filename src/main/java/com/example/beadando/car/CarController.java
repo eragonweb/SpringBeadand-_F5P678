@@ -52,7 +52,14 @@ public class CarController {
         return entity;
     }
 
-    //update
+    //update @PostMapping
+    @PutMapping(value ="/car", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public CarEntity update(@RequestBody CarEntity entity) {
+        list.add(entity);
+        return entity;
+    }
 
-    //delete by id
+
+
+    //delete by id @DeleteMapping
 }
