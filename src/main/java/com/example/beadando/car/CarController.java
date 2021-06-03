@@ -73,7 +73,7 @@ public class CarController {
     public String deleteById(@PathVariable Long id){
         for (CarEntity entity : list) {
             if (entity.getId().equals(id)){
-                list.remove(entity)
+                list.remove(entity);
                 return "Lófasz";
             }
         }
