@@ -1,3 +1,60 @@
+DELETE http://localhost:8081/car/5
+Accept: application/json
+
+<> 2021-06-03T162942.200.json
+
+###
+
+DELETE http://localhost:8081/car/400
+Accept: application/json
+
+###
+
+DELETE http://localhost:8081/car/9
+Accept: application/json
+
+<> 2021-06-03T162918.200.json
+
+###
+
+PUT http://localhost:8081/car
+Content-Type: application/json
+
+{"id": 400,
+  "type": "cabrio",
+  "manufacturer": "Toyota",
+  "door_number": 3,
+  "manufacturer_year": 1999}
+
+###
+
+GET http://localhost:8081/car/8
+Accept: application/json
+
+<> 2021-06-03T162913.200.json
+
+###
+
+GET http://localhost:8081/car
+Accept: application/json
+
+<> 2021-06-03T162909.200.json
+
+###
+
+POST http://localhost:8081/car
+Content-Type: application/json
+
+{"id": 555,
+  "type": "cabrio",
+  "manufacturer": "Toyota",
+  "door_number": 3,
+  "manufacturer_year": 1999}
+
+<> 2021-06-03T162904.200.json
+
+###
+
 GET http://localhost:8081/car/8
 Accept: application/json
 
@@ -417,77 +474,6 @@ Content-Type: application/json
 }
 
 <> 2021-06-03T125135.405.json
-
-###
-
-POST http://localhost:8081/car
-Content-Type: application/json
-
-{ "id": 500,
-  "type": "cabrio",
-  "manufacturer":  "Toyota",
-  "door_number": 3,
-  "manufacturer_year": 1999
-}
-
-###
-
-POST http://localhost:8081/car
-Content-Type: application/json
-
-{ "id": 500,
-  "type": "cabrio",
-  "manufacturer":  "Toyota",
-  "door_number": 3,
-  "manufacturer_year": 1999
-}
-
-<> 2021-06-03T125027.405.json
-
-###
-
-POST http://localhost:8081/car/
-Content-Type: application/json
-
-{ "id": 500,
-  "type": "cabrio",
-  "manufacturer":  "Toyota",
-  "door_number": 3,
-  "manufacturer_year": 1999
-}
-
-<> 2021-06-03T124907.405.json
-
-###
-
-POST http://localhost:8081/car
-Content-Type: application/json
-
-{ "id": 500,
-  "type": "cabrio",
-  "manufacturer":  "Toyota",
-  "door_number": 3,
-  "manufacturer_year": 1999
-}
-
-<> 2021-06-03T124851.405.json
-
-###
-
-GET http://localhost:8081/car
-Accept: application/json
-
-<> 2021-06-03T122932.200.json
-
-###
-
-GET http://localhost:8081/car
-Accept: application/json
-
-###
-
-GET http://localhost:8081/car
-Accept: application/json
 
 ###
 

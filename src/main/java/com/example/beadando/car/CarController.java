@@ -41,24 +41,24 @@ public class CarController {
 
     //find all
     @GetMapping("/car")
-    public CarListResponse findAll(){
+    public ResponseEntity<CarListResponse> findAll(){
         CarListResponse response=new CarListResponse();
         response.setCars(list);
-        return response;
+        return ResponseEntity.ok(response);
             
 
     }
 
     //create
     @PostMapping(value ="/car", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public CarEntity create(@RequestBody CarEntity entity){
+    public ResponseEntity<CarEntity> create(@RequestBody CarEntity entity){
         list.add(entity);
-        return entity;
+        return ResponseEntity.ok(entity);
     }
 
     //update @PostMapping
    @PutMapping(value ="/car", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public CarEntity update(@RequestBody CarEntity entity) {
+    public ResponseEntity<CarEntity> update(@RequestBody CarEntity entity) {
         CarEntity updateCar= findCarById(entity.getId());
         if(updateCar!=null){
             updateCar.setType(entity.getType());
@@ -67,21 +67,22 @@ public class CarController {
             updateCar.setManufacturer_year(entity.getManufacturer_year());
         }
 
-        return updateCar;
+
+        return  ResponseEntity.ok(updateCar);
     }
 
 
 
     //delete by id @DeleteMapping
     @DeleteMapping("/car/{id}")
-    public String deleteById(@PathVariable Long id){
+    public ResponseEntity<String> deleteById(@PathVariable Long id){
         for (CarEntity entity : list) {
             if (entity.getId().equals(id)){
                 list.remove(entity);
-                return "Lófasz";
+                return ResponseEntity.ok("Sikerese müvelet");
             }
         }
-        return null;
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
     private CarEntity findCarById(Long id) {
