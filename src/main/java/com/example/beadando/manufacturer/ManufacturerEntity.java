@@ -1,4 +1,4 @@
-package com.example.demo.manufacturer;
+package com.example.beadando.manufacturer;
 
 public class ManufacturerEntity {
     private Long id;

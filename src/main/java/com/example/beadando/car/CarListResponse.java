@@ -1,4 +1,4 @@
-package com.example.demo.car;
+package com.example.beadando.car;
 
 import java.util.List;
 

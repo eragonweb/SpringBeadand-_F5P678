@@ -1,4 +1,4 @@
-package com.example.demo.car;
+package com.example.beadando.car;
 
 public class CarEntity {
     private Long id;
