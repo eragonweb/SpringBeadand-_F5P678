@@ -1,8 +1,7 @@
 package com.example.beadando.car;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,35 +9,36 @@ import java.util.List;
 @RestController
 public class CarController {
 
+    //TODO nem best practice
+    private List<CarEntity> list =new ArrayList<>();
+    public CarController() {
+        list = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            CarEntity entity = new CarEntity();
+            entity.setId(Long.parseLong(i + ""));
+            entity.setType("Pickup" + i);
+            entity.setDoor_number(5);
+            entity.setManufacturer("Ford");
+            entity.setManufacturer_year(2009 + i);
+            list.add(entity);
+        }
+    }
+
     //find by id
     @GetMapping("/car/{id}")
-    public CarEntity findById(@PathVariable Long Id){
-        CarEntity entity=new CarEntity();
-        entity.setId(Id);
-        entity.setType("Pickup");
-        entity.setDoor_number(5);
-        entity.setManufacturer("Ford");
-        entity.setManufacturer_year(2019);
-
-
-        return entity;
+    public CarEntity findById(@PathVariable Long id){
+         for (CarEntity entity : list) {
+            if (entity.getId().equals(id)){
+                return entity;
+            }
+        }
+        return null;
     }
 
     //find all
     @GetMapping("/car")
     public CarListResponse findAll(){
         CarListResponse response=new CarListResponse();
-        List<CarEntity> list=new ArrayList<>();
-        for (int i = 0; i<10; i++){
-            CarEntity entity=new CarEntity();
-            entity.setId(Long.parseLong(i+""));
-            entity.setType("Pickup"+1);
-            entity.setDoor_number(5);
-            entity.setManufacturer("Ford");
-            entity.setManufacturer_year(2009+1);
-            list.add(entity);
-            
-        }
         response.setCars(list);
         return response;
             
@@ -46,6 +46,11 @@ public class CarController {
     }
 
     //create
+    @PostMapping(value ="/car", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public CarEntity create(@RequestBody CarEntity entity){
+        list.add(entity);
+        return entity;
+    }
 
     //update
 
