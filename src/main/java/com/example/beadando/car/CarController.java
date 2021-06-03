@@ -1,37 +1,24 @@
 package com.example.beadando.car;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @RestController
 public class CarController {
 
-    //TODO nem best practice
-    private List<CarEntity> list =new ArrayList<>();
-    public CarController() {
-        list = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            CarEntity entity = new CarEntity();
-            entity.setId(Long.parseLong(i + ""));
-            entity.setType("Pickup" + i);
-            entity.setDoor_number(5);
-            entity.setManufacturer("Ford");
-            entity.setManufacturer_year(2009 + i);
-            list.add(entity);
-        }
-    }
+
+    @Autowired
+    private CarService service;
 
     //find by id
     @GetMapping("/car/{id}")
-    public ResponseEntity findById(@PathVariable Long id){
+    public ResponseEntity findById(@PathVariable Long id) {
 
-        CarEntity entity = findCarById(id);
-        if(entity!=null){
+        CarEntity entity = service.findCarById(id);
+        if (entity != null) {
             return ResponseEntity.ok(entity);
 
         }
@@ -41,57 +28,36 @@ public class CarController {
 
     //find all
     @GetMapping("/car")
-    public ResponseEntity<CarListResponse> findAll(){
-        CarListResponse response=new CarListResponse();
-        response.setCars(list);
+    public ResponseEntity<CarListResponse> findAll() {
+        CarListResponse response = new CarListResponse();
+        response.setCars(service.findAll());
         return ResponseEntity.ok(response);
-            
+
 
     }
 
     //create
-    @PostMapping(value ="/car", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CarEntity> create(@RequestBody CarEntity entity){
-        list.add(entity);
+    @PostMapping(value = "/car", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<CarEntity> create(@RequestBody CarEntity entity) {
+       service.create(entity);
         return ResponseEntity.ok(entity);
     }
 
     //update @PostMapping
-   @PutMapping(value ="/car", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<CarEntity> update(@RequestBody CarEntity entity) {
-        CarEntity updateCar= findCarById(entity.getId());
-        if(updateCar!=null){
-            updateCar.setType(entity.getType());
-            updateCar.setDoor_number(entity.getDoor_number());
-            updateCar.setManufacturer(entity.getManufacturer());
-            updateCar.setManufacturer_year(entity.getManufacturer_year());
-        }
-
-
-        return  ResponseEntity.ok(updateCar);
+    @PutMapping(value = "/car", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public CarEntity update(@RequestBody CarEntity entity) {
+          return service.update(entity);
     }
-
 
 
     //delete by id @DeleteMapping
     @DeleteMapping("/car/{id}")
-    public ResponseEntity<String> deleteById(@PathVariable Long id){
-        for (CarEntity entity : list) {
-            if (entity.getId().equals(id)){
-                list.remove(entity);
-                return ResponseEntity.ok("Sikerese müvelet");
-            }
+    public ResponseEntity<String> deleteById(@PathVariable Long id) {
+        if(service.deteteById(id)){
+            return ResponseEntity.ok("Sikeres müvelet");
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
-    private CarEntity findCarById(Long id) {
-        for (CarEntity entity : list) {
-            if (entity.getId().equals(id)) {
-                return entity;
-            }
 
-        }
-        return null;
-    }
 }
