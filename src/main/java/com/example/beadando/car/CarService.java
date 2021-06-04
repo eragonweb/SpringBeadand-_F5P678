@@ -29,7 +29,9 @@ public class CarService {
     }
 
     public List<CarEntity> findAll() {
-        return list;
+//JPQL
+        return entityManager.createQuery("SELECT a FROM CarEntity a", CarEntity.class).getResultList();
+
     }
 
     public CarEntity create(CarEntity entity) {
