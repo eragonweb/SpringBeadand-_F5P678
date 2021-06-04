@@ -1,10 +1,22 @@
 package com.example.beadando.car;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name = "Car garage")
+@Entity
 public class CarEntity {
+    @Id
     private Long id;
+    @Column(name = "type")
    private  String type;
+    @Column(name = "manufacturer")
    private String manufacturer;
+    @Column(name = "door_number")
    private int door_number;
+    @Column(name = "manufacturer_year")
    private int manufacturer_year;
 
     public CarEntity() {
