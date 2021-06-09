@@ -4,10 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Transactional
 public class CarService {
     @Autowired
     private EntityManager entityManager;
@@ -34,7 +36,7 @@ public class CarService {
     }
 
     public CarEntity create(CarEntity entity) {
-        list.add(entity);
+        entityManager.persist(entity);
         return entity;
     }
 

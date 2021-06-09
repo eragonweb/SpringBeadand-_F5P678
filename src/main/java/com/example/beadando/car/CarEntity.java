@@ -1,14 +1,12 @@
 package com.example.beadando.car;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Table(name = "car")
 @Entity
 public class CarEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
     @Column(name = "Type")
    private  String type;

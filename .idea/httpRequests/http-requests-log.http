@@ -1,3 +1,16 @@
+POST http://localhost:8081/car
+Content-Type: application/json
+
+{
+  "type": "cabrio",
+  "manufacturer": "Toyota",
+  "door_number": 3,
+  "manufacturer_year": 1999}
+
+<> 2021-06-09T113128.500.json
+
+###
+
 GET http://localhost:8081/car
 Accept: application/json
 
@@ -385,13 +398,6 @@ GET http://localhost:8081/car/8
 Accept: application/json
 
 <> 2021-06-03T162913.200.json
-
-###
-
-GET http://localhost:8081/car
-Accept: application/json
-
-<> 2021-06-03T162909.200.json
 
 ###
 

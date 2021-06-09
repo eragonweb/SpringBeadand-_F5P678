@@ -1,7 +1,7 @@
 POST http://localhost:8081/car
 Content-Type: application/json
 
-{"id": 555,
+{
   "type": "cabrio",
   "manufacturer": "Toyota",
   "door_number": 3,
