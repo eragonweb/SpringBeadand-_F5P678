@@ -1,0 +1,2 @@
+DELETE http://localhost:8081/manufacturer/15
+Accept: application/json

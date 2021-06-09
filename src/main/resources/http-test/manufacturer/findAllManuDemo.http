@@ -1,0 +1,4 @@
+//TODO
+
+GET http://localhost:8081/manufacturer
+Accept: application/json

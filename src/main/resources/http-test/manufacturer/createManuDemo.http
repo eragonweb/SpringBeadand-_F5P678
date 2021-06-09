@@ -1,0 +1,11 @@
+POST http://localhost:8081/manufacturer
+Content-Type: application/json
+
+{
+  "type": "VAN",
+  "manufacturer": "Toyota",
+  "door_number": 3,
+  "manufacturer_year": 1999}
+
+
+###
