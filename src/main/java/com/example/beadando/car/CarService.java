@@ -1,7 +1,6 @@
 package com.example.beadando.car;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -19,7 +18,7 @@ public class CarService {
         list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             CarEntity entity = new CarEntity();
-            entity.setId(Long.parseLong(i + ""));
+            entity.setID(Long.parseLong(i + ""));
             entity.setType("Pickup" + i);
             entity.setDoor_number(5);
             entity.setManufacturer("Ford");
@@ -29,7 +28,7 @@ public class CarService {
     }
 
     public List<CarEntity> findAll() {
-//JPQL
+        //JPQL
         return entityManager.createQuery("SELECT a FROM CarEntity a", CarEntity.class).getResultList();
 
     }
@@ -41,7 +40,7 @@ public class CarService {
 
     public boolean deteteById(Long id) {
         for (CarEntity entity : list) {
-            if (entity.getId().equals(id)) {
+            if (entity.getID().equals(id)) {
                 list.remove(entity);
                 return true;
             }
@@ -50,7 +49,7 @@ public class CarService {
     }
 
     public CarEntity update(CarEntity entity) {
-        CarEntity updateCar = findCarById(entity.getId());
+        CarEntity updateCar = findCarById(entity.getID());
         if (updateCar != null) {
             updateCar.setType(entity.getType());
             updateCar.setDoor_number(entity.getDoor_number());
@@ -64,7 +63,7 @@ public class CarService {
 
     public CarEntity findCarById(Long id) {
         for (CarEntity entity : list) {
-            if (entity.getId().equals(id)) {
+            if (entity.getID().equals(id)) {
                 return entity;
             }
 

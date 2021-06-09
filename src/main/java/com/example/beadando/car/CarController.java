@@ -20,14 +20,14 @@ public class CarController {
         CarEntity entity = service.findCarById(id);
         if (entity != null) {
             return ResponseEntity.ok(entity);
-
         }
-
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
     //find all
     @GetMapping("/car")
+
+
     public ResponseEntity<CarListResponse> findAll() {
         CarListResponse response = new CarListResponse();
         response.setCars(service.findAll());

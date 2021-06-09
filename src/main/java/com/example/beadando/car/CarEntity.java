@@ -5,37 +5,37 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(name = "Car garage")
+@Table(name = "car")
 @Entity
 public class CarEntity {
     @Id
-    private Long id;
-    @Column(name = "type")
+    private Long ID;
+    @Column(name = "Type")
    private  String type;
-    @Column(name = "manufacturer")
+    @Column(name = "Manufacturer")
    private String manufacturer;
-    @Column(name = "door_number")
+    @Column(name = "Door_Number")
    private int door_number;
-    @Column(name = "manufacturer_year")
+    @Column(name = "Manufacturer_Year")
    private int manufacturer_year;
 
     public CarEntity() {
     }
 
-    public CarEntity(Long id, String type, String manufacturer, int door_number, int manufacturer_year) {
-        this.id = id;
+    public CarEntity(Long ID, String type, String manufacturer, int door_number, int manufacturer_year) {
+        this.ID = ID;
         this.type = type;
         this.manufacturer = manufacturer;
         this.door_number = door_number;
         this.manufacturer_year = manufacturer_year;
     }
 
-    public Long getId() {
-        return id;
+    public Long getID() {
+        return ID;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setID(Long id) {
+        this.ID = id;
     }
 
     public String getType() {
