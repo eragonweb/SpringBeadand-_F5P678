@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -30,7 +29,7 @@ public class CarService {
     }
 
     public boolean deteteById(Long id) {
-      CarEntity ManufacturerEntity=findCarById(id);
+      CarEntity ManufacturerEntity= findById(id);
       if(ManufacturerEntity==null){
           return false;
 
@@ -40,7 +39,7 @@ public class CarService {
     }
 
     public CarEntity update(CarEntity entity) {
-        CarEntity updateCar = findCarById(entity.getID());
+        CarEntity updateCar = findById(entity.getID());
         if (updateCar != null) {
             updateCar.setType(entity.getType());
             updateCar.setDoor_number(entity.getDoor_number());
@@ -53,7 +52,7 @@ public class CarService {
         return updateCar;
     }
 
-    public CarEntity findCarById(Long id) {
+    public CarEntity findById(Long id) {
 
         return entityManager.find(CarEntity.class, id);
     }

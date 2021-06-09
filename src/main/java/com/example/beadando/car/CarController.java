@@ -17,7 +17,7 @@ public class CarController {
     @GetMapping("/manufacturer/{id}")
     public ResponseEntity findById(@PathVariable Long id) {
 
-        CarEntity entity = service.findCarById(id);
+        CarEntity entity = service.findById(id);
         if (entity != null) {
             return ResponseEntity.ok(entity);
         }
