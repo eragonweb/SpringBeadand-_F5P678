@@ -14,7 +14,7 @@ public class ManufacturerController {
     private ManufacturerService service;
 
     //find by id
-    @GetMapping("/car/{id}")
+    @GetMapping("/manufacturer/{id}")
     public ResponseEntity findById(@PathVariable Long id) {
 
         ManufacturerEntity entity = service.findById(id);
@@ -25,33 +25,33 @@ public class ManufacturerController {
     }
 
     //find all
-    @GetMapping("/car")
+    @GetMapping("/manufacturer")
 
 
     public ResponseEntity<ManufacturerListResponse> findAll() {
         ManufacturerListResponse response = new ManufacturerListResponse();
-        response.setCars(service.findAll());
+        response.setManufacturer(service.findAll());
         return ResponseEntity.ok(response);
 
 
     }
 
     //create
-    @PostMapping(value = "/car", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/manufacturer", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ManufacturerEntity> create(@RequestBody ManufacturerEntity entity) {
        service.create(entity);
         return ResponseEntity.ok(entity);
     }
 
     //update @PostMapping
-    @PutMapping(value = "/car", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/manufacturer", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ManufacturerEntity update(@RequestBody ManufacturerEntity entity) {
           return service.update(entity);
     }
 
 
     //delete by id @DeleteMapping
-    @DeleteMapping("/car/{id}")
+    @DeleteMapping("/manufacturer/{id}")
     public ResponseEntity<String> deleteById(@PathVariable Long id) {
         if(service.deteteById(id)){
             return ResponseEntity.ok("Sikeres müvelet");

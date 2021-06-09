@@ -5,13 +5,23 @@ import com.example.beadando.car.CarEntity;
 import java.util.List;
 
 public class ManufacturerListResponse {
-    private List<CarEntity> cars;
-
-    public List<CarEntity> getCars() {
-        return cars;
+    private List<ManufacturerEntity> manufacturer;
+    public ManufacturerListResponse(List<ManufacturerEntity> manufacturer) {
+        this.manufacturer = manufacturer;
     }
 
-    public void setCars(List<CarEntity> cars) {
-        this.cars = cars;
+    public ManufacturerListResponse() {
+
     }
+
+    public List<ManufacturerEntity> getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(List<ManufacturerEntity> manufacturer) {
+        this.manufacturer = manufacturer;
+
+    }
+
+
 }
