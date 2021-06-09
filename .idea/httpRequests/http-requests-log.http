@@ -1,3 +1,129 @@
+GET http://localhost:8081/car/10
+Accept: application/json
+
+###
+
+GET http://localhost:8081/car/10
+Accept: application/json
+
+###
+
+GET http://localhost:8081/car/8
+Accept: application/json
+
+<> 2021-06-09T143143.200.json
+
+###
+
+GET http://localhost:8081/car
+Accept: application/json
+
+<> 2021-06-09T143127.200.json
+
+###
+
+DELETE http://localhost:8081/car/15
+Accept: application/json
+
+###
+
+DELETE http://localhost:8081/car/10
+Accept: application/json
+
+###
+
+GET http://localhost:8081/car
+Accept: application/json
+
+<> 2021-06-09T125347.200.json
+
+###
+
+POST http://localhost:8081/car
+Content-Type: application/json
+
+{
+  "type": "VAN",
+  "manufacturer": "Toyota",
+  "door_number": 3,
+  "manufacturer_year": 1999}
+
+<> 2021-06-09T125345.200.json
+
+###
+
+POST http://localhost:8081/car
+Content-Type: application/json
+
+{
+  "type": "VAN",
+  "manufacturer": "Toyota",
+  "door_number": 3,
+  "manufacturer_year": 1999}
+
+<> 2021-06-09T125344.200.json
+
+###
+
+POST http://localhost:8081/car
+Content-Type: application/json
+
+{
+  "type": "VAN",
+  "manufacturer": "Toyota",
+  "door_number": 3,
+  "manufacturer_year": 1999}
+
+<> 2021-06-09T125343.200.json
+
+###
+
+POST http://localhost:8081/car
+Content-Type: application/json
+
+{
+  "type": "VAN",
+  "manufacturer": "Toyota",
+  "door_number": 3,
+  "manufacturer_year": 1999}
+
+<> 2021-06-09T125342.200.json
+
+###
+
+POST http://localhost:8081/car
+Content-Type: application/json
+
+{
+  "type": "VAN",
+  "manufacturer": "Toyota",
+  "door_number": 3,
+  "manufacturer_year": 1999}
+
+<> 2021-06-09T125339.200.json
+
+###
+
+GET http://localhost:8081/car
+Accept: application/json
+
+<> 2021-06-09T125333.200.json
+
+###
+
+POST http://localhost:8081/car
+Content-Type: application/json
+
+{
+  "type": "cabrio",
+  "manufacturer": "Toyota",
+  "door_number": 3,
+  "manufacturer_year": 1999}
+
+<> 2021-06-09T113728.500.json
+
+###
+
 POST http://localhost:8081/car
 Content-Type: application/json
 
@@ -288,116 +414,6 @@ Content-Type: application/json
   "manufacturer_year": 1999}
 
 <> 2021-06-09T093233.200.json
-
-###
-
-GET http://localhost:8081/car
-Accept: application/json
-
-<> 2021-06-09T093223.500.json
-
-###
-
-GET http://localhost:8081/car
-Accept: application/json
-
-<> 2021-06-04T113810.500.json
-
-###
-
-GET http://localhost:8081/car
-Accept: application/json
-
-<> 2021-06-04T112631.500.json
-
-###
-
-GET http://localhost:8081/car
-Accept: application/json
-
-<> 2021-06-04T111451.500.json
-
-###
-
-DELETE http://localhost:8081/car/5
-Accept: application/json
-
-<> 2021-06-03T170512.200.json
-
-###
-
-POST http://localhost:8081/car
-Content-Type: application/json
-
-{"id": 555,
-  "type": "cabrio",
-  "manufacturer": "Toyota",
-  "door_number": 3,
-  "manufacturer_year": 1999}
-
-<> 2021-06-03T170508.200.json
-
-###
-
-PUT http://localhost:8081/car
-Content-Type: application/json
-
-{"id": 400,
-  "type": "cabrio",
-  "manufacturer": "Toyota",
-  "door_number": 3,
-  "manufacturer_year": 1999}
-
-###
-
-GET http://localhost:8081/car/8
-Accept: application/json
-
-<> 2021-06-03T170457.200.json
-
-###
-
-GET http://localhost:8081/car
-Accept: application/json
-
-<> 2021-06-03T170449.200.json
-
-###
-
-DELETE http://localhost:8081/car/5
-Accept: application/json
-
-<> 2021-06-03T162942.200.json
-
-###
-
-DELETE http://localhost:8081/car/400
-Accept: application/json
-
-###
-
-DELETE http://localhost:8081/car/9
-Accept: application/json
-
-<> 2021-06-03T162918.200.json
-
-###
-
-PUT http://localhost:8081/car
-Content-Type: application/json
-
-{"id": 400,
-  "type": "cabrio",
-  "manufacturer": "Toyota",
-  "door_number": 3,
-  "manufacturer_year": 1999}
-
-###
-
-GET http://localhost:8081/car/8
-Accept: application/json
-
-<> 2021-06-03T162913.200.json
 
 ###
 

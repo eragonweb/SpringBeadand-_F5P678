@@ -2,7 +2,7 @@ POST http://localhost:8081/car
 Content-Type: application/json
 
 {
-  "type": "cabrio",
+  "type": "VAN",
   "manufacturer": "Toyota",
   "door_number": 3,
   "manufacturer_year": 1999}
