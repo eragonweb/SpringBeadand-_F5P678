@@ -13,21 +13,10 @@ import java.util.List;
 public class CarService {
     @Autowired
     private EntityManager entityManager;
-    //TODO nem best practice
-    private List<CarEntity> list = new ArrayList<>();
+
 
     public CarService() {
-        list = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            CarEntity entity = new CarEntity();
-            entity.setID(Long.parseLong(i + ""));
-            entity.setType("Pickup" + i);
-            entity.setDoor_number(5);
-            entity.setManufacturer("Ford");
-            entity.setManufacturer_year(2009 + i);
-            list.add(entity);
-        }
-    }
+          }
 
     public List<CarEntity> findAll() {
         //JPQL
@@ -41,12 +30,12 @@ public class CarService {
     }
 
     public boolean deteteById(Long id) {
-        for (CarEntity entity : list) {
-            if (entity.getID().equals(id)) {
-                list.remove(entity);
-                return true;
-            }
-        }
+      CarEntity ManufacturerEntity=findCarById(id);
+      if(ManufacturerEntity==null){
+          return false;
+
+      }
+      entityManager.remove(ManufacturerEntity);
         return false;
     }
 
@@ -57,6 +46,7 @@ public class CarService {
             updateCar.setDoor_number(entity.getDoor_number());
             updateCar.setManufacturer(entity.getManufacturer());
             updateCar.setManufacturer_year(entity.getManufacturer_year());
+            entityManager.merge(entity);
         }
 
 
@@ -64,13 +54,8 @@ public class CarService {
     }
 
     public CarEntity findCarById(Long id) {
-        for (CarEntity entity : list) {
-            if (entity.getID().equals(id)) {
-                return entity;
-            }
 
-        }
-        return null;
+        return entityManager.find(CarEntity.class, id);
     }
 
 }
