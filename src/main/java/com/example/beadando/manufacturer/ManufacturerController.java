@@ -26,11 +26,9 @@ public class ManufacturerController {
 
     //find all
     @GetMapping("/manufacturer")
-
-
     public ResponseEntity<ManufacturerListResponse> findAll() {
         ManufacturerListResponse response = new ManufacturerListResponse();
-        response.setManufacturer(service.findAll());
+        response.setManufacturers(service.findAll());
         return ResponseEntity.ok(response);
 
 
