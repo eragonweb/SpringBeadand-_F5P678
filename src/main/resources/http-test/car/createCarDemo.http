@@ -1,4 +1,4 @@
-POST http://localhost:8081/manufacturer
+POST http://localhost:8081/car
 Content-Type: application/json
 
 {

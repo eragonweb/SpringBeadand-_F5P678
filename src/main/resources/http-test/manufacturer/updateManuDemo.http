@@ -1,7 +1,7 @@
 PUT http://localhost:8081/manufacturer
 Content-Type: application/json
 
-{"id": 400,
+{"id": 3,
   "name": "PDCL"
  }
 
