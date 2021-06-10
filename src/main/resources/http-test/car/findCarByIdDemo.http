@@ -1,2 +1,2 @@
-GET http://localhost:8081/car/10
+GET http://localhost:8081/api/car/10
 Accept: application/json

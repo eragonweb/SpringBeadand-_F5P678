@@ -1,2 +1,2 @@
-GET http://localhost:8081/manufacturer/10
+GET http://localhost:8081/api/manufacturer/10
 Accept: application/json

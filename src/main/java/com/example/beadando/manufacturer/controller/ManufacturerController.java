@@ -17,7 +17,7 @@ public class ManufacturerController {
     private ManufacturerServiceImpl service;
 
     //find by id
-    @GetMapping("/manufacturer/{id}")
+    @GetMapping("/api/manufacturer/{id}")
     public ResponseEntity findById(@PathVariable Long id) {
 
         ManufacturerEntity entity = service.findById(id);
@@ -28,7 +28,7 @@ public class ManufacturerController {
     }
 
     //find all
-    @GetMapping("/manufacturer")
+    @GetMapping("/api/manufacturer")
     public ResponseEntity<ManufacturerListResponse> findAll() {
         ManufacturerListResponse response = new ManufacturerListResponse();
         response.setManufacturers(service.findAll());
@@ -38,21 +38,21 @@ public class ManufacturerController {
     }
 
     //create
-    @PostMapping(value = "/manufacturer", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/api/manufacturer", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ManufacturerEntity> create(@RequestBody ManufacturerEntity entity) {
        service.create(entity);
         return ResponseEntity.ok(entity);
     }
 
     //update @PostMapping
-    @PutMapping(value = "/manufacturer", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/api/manufacturer", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ManufacturerEntity> update(@RequestBody ManufacturerEntity entity) {
           return ResponseEntity.ok(service.update(entity));
     }
 
 
     //delete by id @DeleteMapping
-    @DeleteMapping("/manufacturer/{id}")
+    @DeleteMapping("/api/manufacturer/{id}")
     public ResponseEntity<String> deleteById(@PathVariable Long id) {
         if(service.deteteById(id)){
             return ResponseEntity.ok("Sikeres müvelet");

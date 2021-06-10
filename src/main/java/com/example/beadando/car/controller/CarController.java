@@ -17,7 +17,7 @@ public class CarController {
     private CarServiceImpl service;
 
     //find by id
-    @GetMapping("/car/{id}")
+    @GetMapping("/api/car/{id}")
     public ResponseEntity findById(@PathVariable Long id) {
 
         CarEntity entity = service.findById(id);
@@ -28,7 +28,7 @@ public class CarController {
     }
 
     //find all
-    @GetMapping("/car")
+    @GetMapping("/api/car")
 
 
     public ResponseEntity<CarListResponse> findAll() {
@@ -40,21 +40,21 @@ public class CarController {
     }
 
     //create
-    @PostMapping(value = "/car", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/api/car", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CarEntity> create(@RequestBody CarEntity entity) {
        service.create(entity);
         return ResponseEntity.ok(entity);
     }
 
     //update @PostMapping
-    @PutMapping(value = "/car", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "/api/car", consumes = MediaType.APPLICATION_JSON_VALUE)
     public CarEntity update(@RequestBody CarEntity entity) {
           return service.update(entity);
     }
 
 
     //delete by id @DeleteMapping
-    @DeleteMapping("/car/{id}")
+    @DeleteMapping("/api/car/{id}")
     public ResponseEntity<String> deleteById(@PathVariable Long id) {
         if(service.deteteById(id)){
             return ResponseEntity.ok("Sikeres müvelet");
