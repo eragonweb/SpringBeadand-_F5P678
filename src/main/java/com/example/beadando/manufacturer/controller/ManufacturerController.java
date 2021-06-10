@@ -1,5 +1,8 @@
-package com.example.beadando.manufacturer;
+package com.example.beadando.manufacturer.controller;
 
+import com.example.beadando.manufacturer.entity.ManufacturerEntity;
+import com.example.beadando.manufacturer.controller.response.ManufacturerListResponse;
+import com.example.beadando.manufacturer.service.ManufacturerServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -11,7 +14,7 @@ public class ManufacturerController {
 
 
     @Autowired
-    private ManufacturerService service;
+    private ManufacturerServiceImpl service;
 
     //find by id
     @GetMapping("/manufacturer/{id}")

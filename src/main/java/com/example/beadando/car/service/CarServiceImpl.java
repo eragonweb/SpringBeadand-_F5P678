@@ -1,5 +1,6 @@
-package com.example.beadando.car;
+package com.example.beadando.car.service;
 
+import com.example.beadando.car.entity.CarEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,25 +10,25 @@ import java.util.List;
 
 @Service
 @Transactional
-public class CarService {
+public class CarServiceImpl implements CarService{
     @Autowired
     private EntityManager entityManager;
 
 
-    public CarService() {
+    public CarServiceImpl() {
           }
-
+    @Override
     public List<CarEntity> findAll() {
         //JPQL
         return entityManager.createQuery("SELECT a FROM CarEntity a", CarEntity.class).getResultList();
 
     }
-
+    @Override
     public CarEntity create(CarEntity entity) {
         entityManager.persist(entity);
         return entity;
     }
-
+    @Override
     public boolean deteteById(Long id) {
       CarEntity ManufacturerEntity= findById(id);
       if(ManufacturerEntity==null){
@@ -37,7 +38,7 @@ public class CarService {
       entityManager.remove(ManufacturerEntity);
         return false;
     }
-
+    @Override
     public CarEntity update(CarEntity entity) {
         CarEntity updateCar = findById(entity.getID());
         if (updateCar != null) {
@@ -51,7 +52,7 @@ public class CarService {
 
         return updateCar;
     }
-
+    @Override
     public CarEntity findById(Long id) {
 
         return entityManager.find(CarEntity.class, id);

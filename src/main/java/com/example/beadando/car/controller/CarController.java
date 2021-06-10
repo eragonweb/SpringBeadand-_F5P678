@@ -1,5 +1,8 @@
-package com.example.beadando.car;
+package com.example.beadando.car.controller;
 
+import com.example.beadando.car.entity.CarEntity;
+import com.example.beadando.car.controller.response.CarListResponse;
+import com.example.beadando.car.service.CarServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -11,7 +14,7 @@ public class CarController {
 
 
     @Autowired
-    private CarService service;
+    private CarServiceImpl service;
 
     //find by id
     @GetMapping("/car/{id}")

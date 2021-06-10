@@ -1,6 +1,6 @@
-package com.example.beadando.manufacturer;
+package com.example.beadando.manufacturer.controller.response;
 
-import com.example.beadando.car.CarEntity;
+import com.example.beadando.manufacturer.entity.ManufacturerEntity;
 
 import java.util.List;
 

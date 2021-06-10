@@ -1,5 +1,6 @@
-package com.example.beadando.manufacturer;
+package com.example.beadando.manufacturer.service;
 
+import com.example.beadando.manufacturer.entity.ManufacturerEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,26 +10,26 @@ import java.util.List;
 
 @Service
 @Transactional
-public class ManufacturerService {
+public class ManufacturerServiceImpl implements ManufacturerService {
     @Autowired
     private EntityManager entityManager;
 
 
-    public ManufacturerService() {
+    public ManufacturerServiceImpl() {
 
     }
-
+    @Override
     public List<ManufacturerEntity> findAll() {
         //JPQL
         return entityManager.createQuery("SELECT a FROM ManufacturerEntity a", ManufacturerEntity.class).getResultList();
 
     }
-
+    @Override
     public ManufacturerEntity create(ManufacturerEntity entity) {
         entityManager.persist(entity);
         return entity;
     }
-
+    @Override
     public boolean deteteById(Long id) {
         ManufacturerEntity manufacturerEntity =findById(id);
         if(manufacturerEntity== null){
@@ -37,7 +38,7 @@ public class ManufacturerService {
        entityManager.remove(manufacturerEntity);
         return false;
     }
-
+    @Override
     public ManufacturerEntity update(ManufacturerEntity entity) {
         ManufacturerEntity updateManufacture = findById(entity.getId());
         if (updateManufacture != null) {
@@ -48,7 +49,7 @@ public class ManufacturerService {
 
         return updateManufacture;
     }
-
+    @Override
     public ManufacturerEntity findById(Long id) {
        return entityManager.find(ManufacturerEntity.class, id);
     }

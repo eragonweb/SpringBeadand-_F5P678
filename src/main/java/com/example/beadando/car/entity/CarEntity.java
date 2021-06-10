@@ -1,4 +1,4 @@
-package com.example.beadando.car;
+package com.example.beadando.car.entity;
 
 import javax.persistence.*;
 

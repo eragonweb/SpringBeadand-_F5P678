@@ -1,4 +1,4 @@
-package com.example.beadando.manufacturer;
+package com.example.beadando.manufacturer.entity;
 
 import javax.persistence.*;
 @Table(name = "manufacturer")
