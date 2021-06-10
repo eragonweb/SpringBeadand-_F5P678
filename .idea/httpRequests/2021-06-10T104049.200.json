@@ -1,0 +1,32 @@
+{
+  "manufacturers": [
+    {
+      "id": 3,
+      "name": "PDCL"
+    },
+    {
+      "id": 4,
+      "name": "LCDP"
+    },
+    {
+      "id": 5,
+      "name": "LCDP"
+    },
+    {
+      "id": 6,
+      "name": "LCDP"
+    },
+    {
+      "id": 7,
+      "name": "LCDP"
+    },
+    {
+      "id": 8,
+      "name": "LCDP"
+    },
+    {
+      "id": 9,
+      "name": "LCDP"
+    }
+  ]
+}

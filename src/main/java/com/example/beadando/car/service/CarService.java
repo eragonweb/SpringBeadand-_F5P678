@@ -1,17 +1,10 @@
 package com.example.beadando.car.service;
 
 import com.example.beadando.car.entity.CarEntity;
+import com.example.beadando.core.CoreCRUDService;
 
 import java.util.List;
 
-public interface CarService {
-    List<CarEntity> findAll();
+public interface CarService extends CoreCRUDService<CarEntity> {
 
-    CarEntity create(CarEntity entity);
-
-    boolean deteteById(Long id);
-
-    CarEntity update(CarEntity entity);
-
-    CarEntity findById(Long id);
 }
