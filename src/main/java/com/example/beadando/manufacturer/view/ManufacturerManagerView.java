@@ -1,28 +1,26 @@
 package com.example.beadando.manufacturer.view;
 
 import com.example.beadando.manufacturer.entity.ManufacturerEntity;
+import com.example.beadando.manufacturer.service.ManufacturerService;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
+import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
 @Route
 public class ManufacturerManagerView extends VerticalLayout {
 private  ManufacturerEntity selectedManufacturer;
-    public ManufacturerManagerView(){
-        //adat
-        List<ManufacturerEntity> list=new ArrayList<>();
-        for (int i=0; i<100;i++){
-            ManufacturerEntity entity=new ManufacturerEntity();
-            entity.setId(Long.parseLong(i+" "));
-            entity.setName("Gyár "+ i);
-
-        }
+    @Autowired
+    private ManufacturerService service;
+    @PostConstruct
+    public void init(){
         Grid<ManufacturerEntity> grid=new Grid<>();
-        grid.setItems(list);
+        grid.setItems(service.findAll());
         grid.addColumn(ManufacturerEntity::getId).setHeader("ID");
         grid.addColumn(ManufacturerEntity::getName).setHeader("Neve");
 
@@ -31,8 +29,8 @@ private  ManufacturerEntity selectedManufacturer;
         deleteBTN.setText("Törlés");
         deleteBTN.addClickListener(buttonClickEvent -> {
 
-            list.remove(selectedManufacturer);
-            grid.setItems(list);
+           service.deteteById(selectedManufacturer.getId());
+            grid.setItems(service.findAll());
             selectedManufacturer=null;
             deleteBTN.setEnabled(false);
         });
