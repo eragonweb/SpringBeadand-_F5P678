@@ -43,8 +43,8 @@ public class ManufacturerController {
 
     //update @PostMapping
     @PutMapping(value = "/manufacturer", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ManufacturerEntity update(@RequestBody ManufacturerEntity entity) {
-          return service.update(entity);
+    public ResponseEntity<ManufacturerEntity> update(@RequestBody ManufacturerEntity entity) {
+          return ResponseEntity.ok(service.update(entity));
     }
 
 
