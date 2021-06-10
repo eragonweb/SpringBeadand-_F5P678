@@ -1,6 +1,7 @@
-package com.example.beadando.manufacturer.service;
+package com.example.beadando.manufacturer.service.Impl;
 
 import com.example.beadando.manufacturer.entity.ManufacturerEntity;
+import com.example.beadando.manufacturer.service.ManufacturerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
