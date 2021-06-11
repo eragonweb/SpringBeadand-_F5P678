@@ -2,7 +2,9 @@ package com.example.beadando.manufacturer.entity;
 
 import com.example.beadando.core.CoreEntity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Table(name = "manufacturer")
 @Entity

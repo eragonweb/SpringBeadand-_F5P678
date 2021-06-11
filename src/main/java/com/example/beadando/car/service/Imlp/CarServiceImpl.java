@@ -2,17 +2,10 @@ package com.example.beadando.car.service.Imlp;
 
 import com.example.beadando.car.entity.CarEntity;
 import com.example.beadando.car.service.CarService;
-import com.example.beadando.core.CoreEntity;
 import com.example.beadando.core.Impl.CoreCRUDServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
-import java.util.List;
-
 @Service
-@Transactional
 public class CarServiceImpl extends CoreCRUDServiceImpl<CarEntity> implements CarService {
 
 

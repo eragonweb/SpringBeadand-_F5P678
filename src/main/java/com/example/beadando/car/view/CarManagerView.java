@@ -53,7 +53,7 @@ public class CarManagerView extends VerticalLayout {
         type = new TextField();
         manufacturer = new TextField();
         door_number = new NumberField();
-        manufacturer_year = new  NumberField();
+        manufacturer_year = new NumberField();
         form.add(new Text("Type"), type);
         form.add(new Text("Manufacturer Name"), manufacturer);
         form.add(new Text("Door Number"), door_number);
