@@ -9,13 +9,13 @@ public class CarEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
     @Column(name = "Type")
-   private  String type;
+    private String type;
     @Column(name = "Manufacturer")
-   private String manufacturer;
+    private String manufacturer;
     @Column(name = "Door_Number")
-   private int door_number;
+    private int door_number;
     @Column(name = "Manufacturer_Year")
-   private int manufacturer_year;
+    private int manufacturer_year;
 
     public CarEntity() {
     }

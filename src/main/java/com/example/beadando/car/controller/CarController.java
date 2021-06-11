@@ -1,7 +1,7 @@
 package com.example.beadando.car.controller;
 
-import com.example.beadando.car.entity.CarEntity;
 import com.example.beadando.car.controller.response.CarListResponse;
+import com.example.beadando.car.entity.CarEntity;
 import com.example.beadando.car.service.Imlp.CarServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -42,21 +42,21 @@ public class CarController {
     //create
     @PostMapping(value = "/api/car", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CarEntity> create(@RequestBody CarEntity entity) {
-       service.create(entity);
+        service.create(entity);
         return ResponseEntity.ok(entity);
     }
 
     //update @PostMapping
     @PutMapping(value = "/api/car", consumes = MediaType.APPLICATION_JSON_VALUE)
     public CarEntity update(@RequestBody CarEntity entity) {
-          return service.update(entity);
+        return service.update(entity);
     }
 
 
     //delete by id @DeleteMapping
     @DeleteMapping("/api/car/{id}")
     public ResponseEntity<String> deleteById(@PathVariable Long id) {
-        if(service.deteteById(id)){
+        if (service.deteteById(id)) {
             return ResponseEntity.ok("Sikeres müvelet");
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();

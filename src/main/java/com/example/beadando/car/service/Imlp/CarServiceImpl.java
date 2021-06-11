@@ -17,28 +17,32 @@ public class CarServiceImpl implements CarService {
 
 
     public CarServiceImpl() {
-          }
+    }
+
     @Override
     public List<CarEntity> findAll() {
         //JPQL
         return entityManager.createQuery("SELECT a FROM CarEntity a", CarEntity.class).getResultList();
 
     }
+
     @Override
     public CarEntity create(CarEntity entity) {
         entityManager.persist(entity);
         return entity;
     }
+
     @Override
     public boolean deteteById(Long id) {
-      CarEntity ManufacturerEntity= findById(id);
-      if(ManufacturerEntity==null){
-          return false;
+        CarEntity ManufacturerEntity = findById(id);
+        if (ManufacturerEntity == null) {
+            return false;
 
-      }
-      entityManager.remove(ManufacturerEntity);
+        }
+        entityManager.remove(ManufacturerEntity);
         return false;
     }
+
     @Override
     public CarEntity update(CarEntity entity) {
         CarEntity updateCar = findById(entity.getID());
@@ -53,6 +57,7 @@ public class CarServiceImpl implements CarService {
 
         return updateCar;
     }
+
     @Override
     public CarEntity findById(Long id) {
 

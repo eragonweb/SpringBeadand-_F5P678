@@ -92,7 +92,7 @@ public class ManufacturerManagerView extends VerticalLayout {
         Button addBtn = new Button();
         addBtn.setText("Add");
         addBtn.addClickListener(buttonClickEvent -> {
-            selectedManufacturer=new ManufacturerEntity();
+            selectedManufacturer = new ManufacturerEntity();
             binder.setBean(selectedManufacturer);
             form.setVisible(true);
         });

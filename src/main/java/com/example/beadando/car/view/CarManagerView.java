@@ -1,4 +1,5 @@
 package com.example.beadando.car.view;
+
 import com.example.beadando.car.entity.CarEntity;
 import com.example.beadando.car.service.CarService;
 import com.vaadin.flow.component.Text;
@@ -13,18 +14,17 @@ import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.Route;
 import org.springframework.beans.factory.annotation.Autowired;
 
-
 import javax.annotation.PostConstruct;
+
 //http://localhost:8081/carmanager
 @Route
-public class CarManagerView extends VerticalLayout{
+public class CarManagerView extends VerticalLayout {
     private CarEntity selectedCarEntity;
     private VerticalLayout form;
     private TextField type;
     private TextField manufacturer;
     private TextField door_number;
     private TextField manufacturer_year;
-
 
 
     private Binder<CarEntity> binder;
@@ -51,13 +51,12 @@ public class CarManagerView extends VerticalLayout{
         binder = new Binder<>(CarEntity.class);
         type = new TextField();
         manufacturer = new TextField();
-        door_number= new TextField();
-        manufacturer_year= new TextField();
-        form.add(new Text("Type"),type);
+        door_number = new TextField();
+        manufacturer_year = new TextField();
+        form.add(new Text("Type"), type);
         form.add(new Text("Manufacturer Name"), manufacturer);
-        form.add(new Text("Door Number"),door_number);
+        form.add(new Text("Door Number"), door_number);
         form.add(new Text("Manufactured year"), manufacturer_year);
-
 
 
         Button saveBtn = new Button();
@@ -106,7 +105,7 @@ public class CarManagerView extends VerticalLayout{
         Button addBtn = new Button();
         addBtn.setText("Add");
         addBtn.addClickListener(buttonClickEvent -> {
-            selectedCarEntity =new CarEntity();
+            selectedCarEntity = new CarEntity();
             binder.setBean(selectedCarEntity);
             form.setVisible(true);
         });

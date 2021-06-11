@@ -19,26 +19,30 @@ public class ManufacturerServiceImpl implements ManufacturerService {
     public ManufacturerServiceImpl() {
 
     }
+
     @Override
     public List<ManufacturerEntity> findAll() {
         //JPQL
         return entityManager.createQuery("SELECT a FROM ManufacturerEntity a", ManufacturerEntity.class).getResultList();
 
     }
+
     @Override
     public ManufacturerEntity create(ManufacturerEntity entity) {
         entityManager.persist(entity);
         return entity;
     }
+
     @Override
     public boolean deteteById(Long id) {
-        ManufacturerEntity manufacturerEntity =findById(id);
-        if(manufacturerEntity== null){
+        ManufacturerEntity manufacturerEntity = findById(id);
+        if (manufacturerEntity == null) {
             return false;
         }
-       entityManager.remove(manufacturerEntity);
+        entityManager.remove(manufacturerEntity);
         return false;
     }
+
     @Override
     public ManufacturerEntity update(ManufacturerEntity entity) {
         ManufacturerEntity updateManufacture = findById(entity.getId());
@@ -50,9 +54,10 @@ public class ManufacturerServiceImpl implements ManufacturerService {
 
         return updateManufacture;
     }
+
     @Override
     public ManufacturerEntity findById(Long id) {
-       return entityManager.find(ManufacturerEntity.class, id);
+        return entityManager.find(ManufacturerEntity.class, id);
     }
 
 }
