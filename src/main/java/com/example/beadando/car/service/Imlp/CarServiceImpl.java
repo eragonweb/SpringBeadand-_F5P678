@@ -2,6 +2,8 @@ package com.example.beadando.car.service.Imlp;
 
 import com.example.beadando.car.entity.CarEntity;
 import com.example.beadando.car.service.CarService;
+import com.example.beadando.core.CoreEntity;
+import com.example.beadando.core.Impl.CoreCRUDServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,58 +13,22 @@ import java.util.List;
 
 @Service
 @Transactional
-public class CarServiceImpl implements CarService {
-    @Autowired
-    private EntityManager entityManager;
+public class CarServiceImpl extends CoreCRUDServiceImpl<CarEntity> implements CarService {
 
-
-    public CarServiceImpl() {
-    }
 
     @Override
-    public List<CarEntity> findAll() {
-        //JPQL
-        return entityManager.createQuery("SELECT a FROM CarEntity a", CarEntity.class).getResultList();
+    protected void updateCore(CarEntity updateEntity, CarEntity entity) {
+        updateEntity.setManufacturer(entity.getManufacturer());
+        updateEntity.setDoor_number(entity.getDoor_number());
+        updateEntity.setManufacturer_year(entity.getManufacturer_year());
+        updateEntity.setType(entity.getType());
+
 
     }
 
     @Override
-    public CarEntity create(CarEntity entity) {
-        entityManager.persist(entity);
-        return entity;
+    protected Class getManagedClass() {
+        return CarEntity.class;
     }
-
-    @Override
-    public boolean deteteById(Long id) {
-        CarEntity ManufacturerEntity = findById(id);
-        if (ManufacturerEntity == null) {
-            return false;
-
-        }
-        entityManager.remove(ManufacturerEntity);
-        return false;
-    }
-
-    @Override
-    public CarEntity update(CarEntity entity) {
-        CarEntity updateCar = findById(entity.getID());
-        if (updateCar != null) {
-            updateCar.setType(entity.getType());
-            updateCar.setDoor_number(entity.getDoor_number());
-            updateCar.setManufacturer(entity.getManufacturer());
-            updateCar.setManufacturer_year(entity.getManufacturer_year());
-            entityManager.merge(entity);
-        }
-
-
-        return updateCar;
-    }
-
-    @Override
-    public CarEntity findById(Long id) {
-
-        return entityManager.find(CarEntity.class, id);
-    }
-
 }
 

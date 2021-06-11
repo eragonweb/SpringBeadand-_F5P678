@@ -1,39 +1,23 @@
 package com.example.beadando.car.entity;
 
+import com.example.beadando.core.CoreEntity;
+
 import javax.persistence.*;
 
 @Table(name = "car")
 @Entity
-public class CarEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID;
+public class CarEntity extends CoreEntity {
+
     @Column(name = "Type")
     private String type;
     @Column(name = "Manufacturer")
     private String manufacturer;
     @Column(name = "Door_Number")
-    private int door_number;
+    private double door_number;
     @Column(name = "Manufacturer_Year")
-    private int manufacturer_year;
+    private double manufacturer_year;
 
     public CarEntity() {
-    }
-
-    public CarEntity(Long ID, String type, String manufacturer, int door_number, int manufacturer_year) {
-        this.ID = ID;
-        this.type = type;
-        this.manufacturer = manufacturer;
-        this.door_number = door_number;
-        this.manufacturer_year = manufacturer_year;
-    }
-
-    public Long getID() {
-        return ID;
-    }
-
-    public void setID(Long id) {
-        this.ID = id;
     }
 
     public String getType() {
@@ -52,19 +36,19 @@ public class CarEntity {
         this.manufacturer = manufacturer;
     }
 
-    public int getDoor_number() {
+    public double getDoor_number() {
         return door_number;
     }
 
-    public void setDoor_number(int door_number) {
+    public void setDoor_number(double door_number) {
         this.door_number = door_number;
     }
 
-    public int getManufacturer_year() {
+    public double getManufacturer_year() {
         return manufacturer_year;
     }
 
-    public void setManufacturer_year(int manufacturer_year) {
+    public void setManufacturer_year(double manufacturer_year) {
         this.manufacturer_year = manufacturer_year;
     }
 }

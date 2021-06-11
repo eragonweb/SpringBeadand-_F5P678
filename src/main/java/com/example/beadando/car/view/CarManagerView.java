@@ -36,7 +36,7 @@ public class CarManagerView extends VerticalLayout {
     public void init() {
         Grid<CarEntity> grid = new Grid<>();
         grid.setItems(service.findAll());
-        grid.addColumn(CarEntity::getID).setHeader("ID");
+        grid.addColumn(CarEntity::getId).setHeader("ID");
         grid.addColumn(CarEntity::getType).setHeader("Type");
         grid.addColumn(CarEntity::getManufacturer).setHeader("Manufacturer");
         grid.addColumn(CarEntity::getDoor_number).setHeader("Door Number");
@@ -63,7 +63,7 @@ public class CarManagerView extends VerticalLayout {
         Button saveBtn = new Button();
         saveBtn.setText("Save");
         saveBtn.addClickListener(buttonClickEvent -> {
-            if (selectedCarEntity.getID() != null) {
+            if (selectedCarEntity.getId() != null) {
                 service.update(selectedCarEntity);
             } else {
                 service.create(selectedCarEntity);
@@ -86,7 +86,7 @@ public class CarManagerView extends VerticalLayout {
         deleteBTN.setText("Delete");
         deleteBTN.setIcon(VaadinIcon.TRASH.create());
         deleteBTN.addClickListener(buttonClickEvent -> {
-            service.deteteById(selectedCarEntity.getID());
+            service.deteteById(selectedCarEntity.getId());
             grid.setItems(service.findAll());
             selectedCarEntity = null;
             deleteBTN.setEnabled(false);

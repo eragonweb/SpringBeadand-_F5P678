@@ -15,7 +15,7 @@
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>
-        <vaadin.version>14.5.4</vaadin.version>
+        <vaadin.version>13.0.13</vaadin.version>
     </properties>
     <dependencies>
 
