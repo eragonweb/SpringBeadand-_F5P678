@@ -1,4 +1,3 @@
-//TODO
 
 GET http://localhost:8081/api/car
 Accept: application/json
