@@ -9,6 +9,7 @@ import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.NumberField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.Route;
@@ -23,8 +24,8 @@ public class CarManagerView extends VerticalLayout {
     private VerticalLayout form;
     private TextField type;
     private TextField manufacturer;
-    private TextField door_number;
-    private TextField manufacturer_year;
+    private NumberField door_number;
+    private NumberField manufacturer_year;
 
 
     private Binder<CarEntity> binder;
@@ -51,8 +52,8 @@ public class CarManagerView extends VerticalLayout {
         binder = new Binder<>(CarEntity.class);
         type = new TextField();
         manufacturer = new TextField();
-        door_number = new TextField();
-        manufacturer_year = new TextField();
+        door_number = new NumberField();
+        manufacturer_year = new  NumberField();
         form.add(new Text("Type"), type);
         form.add(new Text("Manufacturer Name"), manufacturer);
         form.add(new Text("Door Number"), door_number);
