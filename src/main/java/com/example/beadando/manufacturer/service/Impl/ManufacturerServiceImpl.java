@@ -1,6 +1,6 @@
 package com.example.beadando.manufacturer.service.Impl;
 
-import com.example.beadando.core.Impl.CoreCRUDServiceImpl;
+import com.example.beadando.core.impl.CoreCRUDServiceImpl;
 import com.example.beadando.manufacturer.entity.ManufacturerEntity;
 import com.example.beadando.manufacturer.service.ManufacturerService;
 import org.springframework.stereotype.Service;

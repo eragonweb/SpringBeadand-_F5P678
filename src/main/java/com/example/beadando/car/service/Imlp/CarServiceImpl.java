@@ -2,7 +2,7 @@ package com.example.beadando.car.service.Imlp;
 
 import com.example.beadando.car.entity.CarEntity;
 import com.example.beadando.car.service.CarService;
-import com.example.beadando.core.Impl.CoreCRUDServiceImpl;
+import com.example.beadando.core.impl.CoreCRUDServiceImpl;
 import org.springframework.stereotype.Service;
 
 @Service

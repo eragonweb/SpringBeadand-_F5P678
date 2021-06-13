@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.stream.Stream;
 
 public class SecurityUtils {
+
     private SecurityUtils() {
         // Util methods only
     }
@@ -32,10 +33,15 @@ public class SecurityUtils {
      * Tests if some user is authenticated. As Spring Security always will create an {@link AnonymousAuthenticationToken}
      * we have to ignore those tokens explicitly.
      */
-    static boolean isUserLoggedIn() {
+    public static boolean isUserLoggedIn() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         return authentication != null
                 && !(authentication instanceof AnonymousAuthenticationToken)
                 && authentication.isAuthenticated();
+    }
+
+    public static boolean isAdmin() {
+        return isUserLoggedIn() && SecurityContextHolder.getContext().getAuthentication().getAuthorities().stream().
+                anyMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ROLE_ADMIN"));
     }
 }
