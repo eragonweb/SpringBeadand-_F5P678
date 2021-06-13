@@ -1,10 +1,9 @@
 package com.example.beadando.car.entity;
 
 import com.example.beadando.core.CoreEntity;
+import com.example.beadando.manufacturer.entity.ManufacturerEntity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Table(name = "car")
 @Entity
@@ -12,8 +11,9 @@ public class CarEntity extends CoreEntity {
 
     @Column(name = "Type")
     private String type;
-    @Column(name = "Manufacturer")
-    private String manufacturer;
+    @ManyToOne
+    @JoinColumn(name = "Manufacturer_Id")
+    private ManufacturerEntity manufacturer;
     @Column(name = "Door_Number")
     private double door_number;
     @Column(name = "Manufacturer_Year")
@@ -30,11 +30,11 @@ public class CarEntity extends CoreEntity {
         this.type = type;
     }
 
-    public String getManufacturer() {
+    public ManufacturerEntity getManufacturer() {
         return manufacturer;
     }
 
-    public void setManufacturer(String manufacturer) {
+    public void setManufacturer(ManufacturerEntity manufacturer) {
         this.manufacturer = manufacturer;
     }
 

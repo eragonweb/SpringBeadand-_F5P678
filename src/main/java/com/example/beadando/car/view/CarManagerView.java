@@ -3,8 +3,11 @@ package com.example.beadando.car.view;
 import com.example.beadando.car.entity.CarEntity;
 import com.example.beadando.car.service.CarService;
 import com.example.beadando.core.component.MenuComponenet;
+import com.example.beadando.manufacturer.entity.ManufacturerEntity;
+import com.example.beadando.manufacturer.service.ManufacturerService;
 import com.vaadin.flow.component.Text;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.notification.Notification;
@@ -24,7 +27,7 @@ public class CarManagerView extends VerticalLayout {
     private CarEntity selectedCarEntity;
     private VerticalLayout form;
     private TextField type;
-    private TextField manufacturer;
+    private ComboBox<ManufacturerEntity> manufacturer;
     private NumberField door_number;
     private NumberField manufacturer_year;
 
@@ -32,6 +35,8 @@ public class CarManagerView extends VerticalLayout {
     private Binder<CarEntity> binder;
     @Autowired
     private CarService service;
+    @Autowired
+    private ManufacturerService manufacturerService;
 
     @PostConstruct
     public void init() {
@@ -40,7 +45,12 @@ public class CarManagerView extends VerticalLayout {
         grid.setItems(service.findAll());
         grid.addColumn(CarEntity::getId).setHeader("ID");
         grid.addColumn(CarEntity::getType).setHeader("Type");
-        grid.addColumn(CarEntity::getManufacturer).setHeader("Manufacturer");
+        grid.addColumn(carEntity -> {
+            if (carEntity.getManufacturer() != null) {
+                return carEntity.getManufacturer().getName();
+            }
+            return "";
+        }).setHeader("Manufacturer");
         grid.addColumn(CarEntity::getDoor_number).setHeader("Door Number");
         grid.addColumn(CarEntity::getManufacturer_year).setHeader("Manufacturer_year");
 
@@ -53,11 +63,13 @@ public class CarManagerView extends VerticalLayout {
         form = new VerticalLayout();
         binder = new Binder<>(CarEntity.class);
         type = new TextField();
-        manufacturer = new TextField();
         door_number = new NumberField();
         manufacturer_year = new NumberField();
         form.add(new Text("Type"), type);
-        form.add(new Text("Manufacturer Name"), manufacturer);
+        manufacturer = new ComboBox<>();
+        manufacturer.setItems(manufacturerService.findAll());
+        manufacturer.setItemLabelGenerator(manufacturerEntity -> manufacturerEntity.getName());
+        form.add(new Text("Manufacturer"), manufacturer);
         form.add(new Text("Door Number"), door_number);
         form.add(new Text("Manufactured year"), manufacturer_year);
 

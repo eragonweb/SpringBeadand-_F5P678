@@ -5,20 +5,20 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 public class MenuComponenet extends HorizontalLayout {
 
-    public MenuComponenet(){
-        Anchor carLink=new Anchor();
+    public MenuComponenet() {
+        Anchor carLink = new Anchor();
         carLink.setHref("/carmanager");
         carLink.setText("Cars");
 
-        Anchor manufacturerLink=new Anchor();
+        Anchor manufacturerLink = new Anchor();
         manufacturerLink.setHref("/manufacturermanager");
         manufacturerLink.setText("Manufacturers");
 
-        Anchor userLink=new Anchor();
+        Anchor userLink = new Anchor();
         userLink.setHref("/usermanager");
         userLink.setText("Users");
 
-        add(carLink,manufacturerLink,userLink);
+        add(carLink, manufacturerLink, userLink);
 
     }
 }
