@@ -1,14 +1,12 @@
 package com.example.beadando.core.impl;
 
+
 import com.example.beadando.core.CoreCRUDService;
 import com.example.beadando.core.entity.CoreEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import javax.persistence.EntityManager;
 import java.util.List;
-
 
 public abstract class CoreCRUDServiceImpl<T extends CoreEntity> implements CoreCRUDService<T> {
 
@@ -66,5 +64,4 @@ public abstract class CoreCRUDServiceImpl<T extends CoreEntity> implements CoreC
 
     protected abstract Class<T> getManagedClass();
 
-    public abstract UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
 }

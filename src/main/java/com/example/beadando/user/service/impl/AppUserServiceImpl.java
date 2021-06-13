@@ -10,7 +10,7 @@ import javax.persistence.TypedQuery;
 
 @Service
 
-public class AppUserServiceImpl extends CoreCRUDServiceImpl<AppUserEntity> implements AppUserService  {
+public class AppUserServiceImpl extends CoreCRUDServiceImpl<AppUserEntity> implements AppUserService {
     @Override
     protected void updateCore(AppUserEntity updatableEntity, AppUserEntity entity) {
         updatableEntity.setPassword(entity.getPassword());
