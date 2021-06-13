@@ -2,7 +2,7 @@ package com.example.beadando.car.view;
 
 import com.example.beadando.car.entity.CarEntity;
 import com.example.beadando.car.service.CarService;
-import com.example.beadando.core.component.MenuComponenet;
+import com.example.beadando.core.component.MenuComponent;
 import com.example.beadando.manufacturer.entity.ManufacturerEntity;
 import com.example.beadando.manufacturer.service.ManufacturerService;
 import com.vaadin.flow.component.Text;
@@ -40,7 +40,7 @@ public class CarManagerView extends VerticalLayout {
 
     @PostConstruct
     public void init() {
-        add(new MenuComponenet());
+        add(new MenuComponent());
         Grid<CarEntity> grid = new Grid<>();
         grid.setItems(service.findAll());
         grid.addColumn(CarEntity::getId).setHeader("ID");

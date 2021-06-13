@@ -1,6 +1,6 @@
 package com.example.beadando.manufacturer.view;
 
-import com.example.beadando.core.component.MenuComponenet;
+import com.example.beadando.core.component.MenuComponent;
 import com.example.beadando.manufacturer.entity.ManufacturerEntity;
 import com.example.beadando.manufacturer.service.ManufacturerService;
 import com.vaadin.flow.component.Text;
@@ -31,7 +31,7 @@ public class ManufacturerManagerView extends VerticalLayout {
 
     @PostConstruct
     public void init() {
-        add(new MenuComponenet());
+        add(new MenuComponent());
         Grid<ManufacturerEntity> grid = new Grid<>();
         grid.setItems(service.findAll());
         grid.addColumn(ManufacturerEntity::getId).setHeader("ID");
