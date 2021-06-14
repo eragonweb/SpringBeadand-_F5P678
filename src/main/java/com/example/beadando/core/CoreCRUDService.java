@@ -11,7 +11,7 @@ public interface CoreCRUDService<T> {
     T create(T entity);
 
     @Transactional
-    boolean deteteById(Long id);
+    boolean deleteById(Long id);
 
     @Transactional
     T update(T entity);

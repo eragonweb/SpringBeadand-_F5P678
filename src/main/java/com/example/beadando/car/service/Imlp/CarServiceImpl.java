@@ -3,6 +3,8 @@ package com.example.beadando.car.service.Imlp;
 import com.example.beadando.car.entity.CarEntity;
 import com.example.beadando.car.service.CarService;
 import com.example.beadando.core.impl.CoreCRUDServiceImpl;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -22,6 +24,11 @@ public class CarServiceImpl extends CoreCRUDServiceImpl<CarEntity> implements Ca
     @Override
     protected Class getManagedClass() {
         return CarEntity.class;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return null;
     }
 }
 

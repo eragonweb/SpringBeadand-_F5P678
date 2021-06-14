@@ -10,6 +10,7 @@ import java.util.Set;
 @Entity
 @Table(name = "app_user")
 public class AppUserEntity extends CoreEntity implements UserDetails {
+
     public static final String FIND_USER_BY_USER_NAME = "AppUserEntity.findUserByUsername";
 
     @Column(name = "username", unique = true)
@@ -67,4 +68,5 @@ public class AppUserEntity extends CoreEntity implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 }
