@@ -1,6 +1,6 @@
 package com.example.beadando.manufacturer.entity;
 
-import com.example.beadando.core.CoreEntity;
+import com.example.beadando.core.entity.CoreEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -20,6 +20,10 @@ public class AppRoleServiceImpl extends CoreCRUDServiceImpl<AppRoleEntity> imple
         return AppRoleEntity.class;
     }
 
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return null;
+    }
 
 
     @Override

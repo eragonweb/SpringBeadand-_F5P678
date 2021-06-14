@@ -1,6 +1,6 @@
 package com.example.beadando.car.entity;
 
-import com.example.beadando.core.CoreEntity;
+import com.example.beadando.core.entity.CoreEntity;
 import com.example.beadando.manufacturer.entity.ManufacturerEntity;
 
 import javax.persistence.*;

@@ -22,13 +22,19 @@ public class CarServiceImpl extends CoreCRUDServiceImpl<CarEntity> implements Ca
     }
 
     @Override
-    protected Class getManagedClass() {
+    protected Class<CarEntity>  getManagedClass() {
         return CarEntity.class;
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return null;
+    }
+
+
+    @Override
+    public boolean deleteById(Long id) {
+        return false;
     }
 }
 
