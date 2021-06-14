@@ -22,7 +22,7 @@ public class CarServiceImpl extends CoreCRUDServiceImpl<CarEntity> implements Ca
     }
 
     @Override
-    protected Class<CarEntity>  getManagedClass() {
+    protected Class<CarEntity> getManagedClass() {
         return CarEntity.class;
     }
 

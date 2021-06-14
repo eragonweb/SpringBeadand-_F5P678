@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-
 import javax.persistence.EntityManager;
 import java.util.List;
 
@@ -18,7 +17,6 @@ public abstract class CoreCRUDServiceImpl<T extends CoreEntity> implements CoreC
 
     public CoreCRUDServiceImpl() {
     }
-
 
 
     @Override

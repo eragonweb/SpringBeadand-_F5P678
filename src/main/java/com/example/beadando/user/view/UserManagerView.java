@@ -23,7 +23,7 @@ import javax.annotation.PostConstruct;
 
 // http://localhost:8081/carmanager
 @Route
-public class UserManagerView extends VerticalLayout{
+public class UserManagerView extends VerticalLayout {
     private AppUserEntity selectedUser;
     private VerticalLayout form;
     private TextField username;
