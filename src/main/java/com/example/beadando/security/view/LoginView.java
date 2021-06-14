@@ -9,7 +9,7 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import java.util.Collections;
 @Tag("sa-login-view")
-@Route("/login")
+@Route("login")
 @PageTitle("Login")
 
 public class LoginView extends VerticalLayout implements BeforeEnterObserver  {
