@@ -17,7 +17,7 @@ public class CarEntity extends CoreEntity {
     @Column(name = "Door_Number")
     private double door_number;
     @Column(name = "Manufacturer_Year")
-    private double manufacturer_year;
+    private double manufacturerYear;
 
     public CarEntity() {
     }
@@ -46,11 +46,11 @@ public class CarEntity extends CoreEntity {
         this.door_number = door_number;
     }
 
-    public double getManufacturer_year() {
-        return manufacturer_year;
+    public double getManufacturerYear() {
+        return manufacturerYear;
     }
 
-    public void setManufacturer_year(double manufacturer_year) {
-        this.manufacturer_year = manufacturer_year;
+    public void setManufacturerYear(double manufacturer_year) {
+        this.manufacturerYear = manufacturer_year;
     }
 }

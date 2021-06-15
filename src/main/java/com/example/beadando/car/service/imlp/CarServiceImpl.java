@@ -1,4 +1,4 @@
-package com.example.beadando.car.service.Imlp;
+package com.example.beadando.car.service.imlp;
 
 import com.example.beadando.car.entity.CarEntity;
 import com.example.beadando.car.service.CarService;
@@ -15,7 +15,7 @@ public class CarServiceImpl extends CoreCRUDServiceImpl<CarEntity> implements Ca
     protected void updateCore(CarEntity updateEntity, CarEntity entity) {
         updateEntity.setManufacturer(entity.getManufacturer());
         updateEntity.setDoor_number(entity.getDoor_number());
-        updateEntity.setManufacturer_year(entity.getManufacturer_year());
+        updateEntity.setManufacturerYear(entity.getManufacturerYear());
         updateEntity.setType(entity.getType());
 
 

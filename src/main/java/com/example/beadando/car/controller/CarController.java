@@ -2,7 +2,7 @@ package com.example.beadando.car.controller;
 
 import com.example.beadando.car.controller.response.CarListResponse;
 import com.example.beadando.car.entity.CarEntity;
-import com.example.beadando.car.service.Imlp.CarServiceImpl;
+import com.example.beadando.car.service.imlp.CarServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

@@ -1,4 +1,4 @@
-package com.example.beadando.manufacturer.service.Impl;
+package com.example.beadando.manufacturer.service.impl;
 
 import com.example.beadando.core.impl.CoreCRUDServiceImpl;
 import com.example.beadando.manufacturer.entity.ManufacturerEntity;
@@ -30,5 +30,7 @@ public class ManufacturerServiceImpl extends CoreCRUDServiceImpl<ManufacturerEnt
     public boolean deleteById(Long id) {
         return false;
     }
+
+
 }
 

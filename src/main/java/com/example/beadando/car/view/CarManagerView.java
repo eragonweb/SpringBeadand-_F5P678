@@ -52,7 +52,7 @@ public class CarManagerView extends VerticalLayout {
             return "";
         }).setHeader("Manufacturer");
         grid.addColumn(CarEntity::getDoor_number).setHeader("Door Number");
-        grid.addColumn(CarEntity::getManufacturer_year).setHeader("Manufacturer_year");
+        grid.addColumn(CarEntity::getManufacturerYear).setHeader("Manufacturer_year");
 
         addButtonBar(grid);
         add(grid);
